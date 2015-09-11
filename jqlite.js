@@ -19,6 +19,11 @@ function $(selector) {
       this.element.onclick = fn;
       return this;
     }
+    JQLite.prototype.add = function(newElemName) {
+      var newElem = document.createElement(newElemName);
+      this.element.add(newElem);
+      return new JQLite(newElem);
+    }
     switch (selector.charAt(0)) {
       case ".":
       return document.getElementsByClassName(selector.substring(1));

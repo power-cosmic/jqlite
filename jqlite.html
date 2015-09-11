@@ -29,6 +29,13 @@
 			  //document.getElementById("pic3").
 			  object.innerHTML = str;
 			}
+      $(function() {
+        $('#bar').click(
+          function() {
+            $('#bonus').element.hidden = !$('#bonus').element.hidden;
+          }
+        );
+      });
 		</script>
 		<style>
 			#buttons, #bar, #pictures {
@@ -60,7 +67,7 @@
 			<button onclick='f1(1);'>click for a picture</button>
 			<button onclick='f1(2);'>click for a picture</button>
 		</div>
-		<div id='bar' onclick="document.getElementById('bonus').hidden=!document.getElementById('bonus').hidden;">
+		<div id='bar'>
 			<hr />
 		</div>
 		<div id='pictures'>
