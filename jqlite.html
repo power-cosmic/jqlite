@@ -2,7 +2,74 @@
 <html>
   <head>
     <title>jqlite</title>
-  </head>
-  <body>
-  </body>
+    <script type="text/javascript" src="jqlite.js"></script>
+		<script>
+			var pics = [];
+			pics[0] = "http://www.austinkleon.com/wp-content/uploads/2008/02/stick_figure.gif";
+			pics[1] = "http://t3.gstatic.com/images?q=tbn:ANd9GcSNCY_mqYVGxj3qpfdUIPND-cBG06of2jJmwOC927lEEDUQW1ZfmQ";
+			pics[2] = "https://upload.wikimedia.org/wikipedia/commons/7/75/Logo_TVE-2.svg";
+
+			function f1(picNum) {
+				if ($("#pic" + picNum).html(null) == "&nbsp;") {
+				  str = "";
+				  str = str + "<img src='" +  pics[picNum] + "'>";
+				  //alert('you built ' + str);
+				  $("#pic" + picNum).html(str);
+				  //document.getElementById("pic" + picNum).innerHTML = str;
+
+				}
+				else {
+					$("#pic" + picNum).html('&nbsp;');
+				}
+			}
+			function f2(picNum, object) {
+			  str = "";
+			  str = str + "<img src='" +  pics[picNum] + "'>";
+			  //alert('you built ' + str);
+			  //document.getElementById("pic3").
+			  object.innerHTML = str;
+			}
+		</script>
+		<style>
+			#buttons, #bar, #pictures {
+				width:900px;
+				margin:auto;
+			}
+			#bonus {
+				width:300px;
+				margin:auto;
+			}
+			div.image {
+				float:left;
+				width:300px;
+				height:450px;
+			}
+			img {
+				width:300px;
+				height:450px;
+			}
+			button {
+				margin: 0px 85px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id='buttons'>
+			<button onclick='f1(0);'>click for a picture</button>
+			<button onclick='f1(1);'>click for a picture</button>
+			<button onclick='f1(2);'>click for a picture</button>
+		</div>
+		<div id='bar' onclick="document.getElementById('bonus').hidden=!document.getElementById('bonus').hidden;">
+			<hr />
+		</div>
+		<div id='pictures'>
+			<div id='pic0' class='image'>&nbsp;</div>
+			<div id='pic1' class='image'>&nbsp;</div>
+			<div id='pic2' class='image'>&nbsp;</div>
+		</div>
+		<div id='bonus' hidden>
+			<button onclick='f2(Math.floor(Math.random() * 3), this);' style='margin:auto;'>click for a random picture</button>
+		</div>
+	</body>
 </html>

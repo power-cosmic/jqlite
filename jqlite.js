@@ -4,16 +4,25 @@ function $(selector) {
   if (itemType == "function") {
     window.onload = selector;
   } else if (itemType == "string") {
-
-    switch (itemType.charAt(0)) {
+    function JQLite(elem) {
+      this.element = elem;
+    }
+    JQLite.prototype.html = function(newHTML) {
+      if (newHTML !== null) {
+        this.element.innerHTML = newHTML;
+        return this;
+      } else {
+        return this.element.innerHTML;
+      }
+    }
+    switch (selector.charAt(0)) {
       case ".":
-      return document.getElementsByClassName(itemType.substring(1));
+      return document.getElementsByClassName(selector.substring(1));
       break;
       case "#":
-      return document.getElementById(itemType.substring(1));
+      return new JQLite(document.getElementById(selector.substring(1)));
       break;
-      default:
-      return document.getElementsByTagName(item.substring(1));
+      default:return document.getElementsByTagName(selector.substring(1));
       break;
     }
   }
