@@ -15,6 +15,10 @@ function $(selector) {
         return this.element.innerHTML;
       }
     }
+    JQLite.prototype.click = function(fn) {
+      this.element.onclick = fn;
+      return this;
+    }
     switch (selector.charAt(0)) {
       case ".":
       return document.getElementsByClassName(selector.substring(1));
