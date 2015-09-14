@@ -4,34 +4,37 @@ function $(selector) {
   if (itemType == "function") {
     window.onload = selector;
   } else if (itemType == "string") {
-    function JQLite(elem) {
+    function JQLite(elem, next) {
       this.element = elem;
+      this.next = next;
     }
     JQLite.prototype.html = function(newHTML) {
-      if (newHTML !== null) {
-        this.element.innerHTML = newHTML;
-        return this;
-      } else {
+      if (newHTML === undefined) {
         return this.element.innerHTML;
       }
+      this.element.innerHTML = newHTML;
+      return this;
     }
     JQLite.prototype.click = function(fn) {
       this.element.onclick = fn;
       return this;
     }
-    JQLite.prototype.add = function(newElemName) {
-      var newElem = document.createElement(newElemName);
+    JQLite.prototype.add = function(newElem) {
+      if (typeof newElem == "string") {
+        newElem = document.createElement(newElem);
+      }
       this.element.add(newElem);
       return new JQLite(newElem);
     }
     switch (selector.charAt(0)) {
       case ".":
-      return document.getElementsByClassName(selector.substring(1));
+      var items = document.getElementsByClassName(selector.substring(1));
       break;
       case "#":
       return new JQLite(document.getElementById(selector.substring(1)));
       break;
-      default:return document.getElementsByTagName(selector.substring(1));
+      default:
+      return document.getElementsByTagName(selector.substring(1));
       break;
     }
   }
