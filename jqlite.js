@@ -4,16 +4,19 @@ function $(selector) {
   if (itemType == "function") {
     window.onload = selector;
   } else if (itemType == "string") {
-    function JQLite(elem, next) {
+
+    function JQLite(elem, length) {
       this.element = elem;
-      this.next = next;
+      this.length = length || 0;
     }
     JQLite.prototype.html = function(newHTML) {
-      if (newHTML === undefined) {
-        return this.element.innerHTML;
+      if (!this.length) {
+        if (newHTML === undefined) {
+          return this.element.innerHTML;
+        }
+        this.element.innerHTML = newHTML;
+        return this;
       }
-      this.element.innerHTML = newHTML;
-      return this;
     }
     JQLite.prototype.click = function(fn) {
       this.element.onclick = fn;
@@ -34,15 +37,24 @@ function $(selector) {
       this.element.appendChild(newElem);
       return new JQLite(newElem);
     }
+    JQLite.prototype.each = function(fn) {
+      if (this.length) {
+        this.element.forEach(fn);
+      } else {
+        fn(this.element);
+      }
+    }
     switch (selector.charAt(0)) {
-      case ".":
-      var items = document.getElementsByClassName(selector.substring(1));
-      break;
       case "#":
       return new JQLite(document.getElementById(selector.substring(1)));
       break;
+      case ".":
+      var items = document.getElementsByClassName(selector.substring(1));
+      return new JQLite(items, items.length);
+      break;
       default:
-      return document.getElementsByTagName(selector.substring(1));
+      var items = document.getElementsByTagName(selector.substring(1));
+      return new JQLite(items, items.length);
       break;
     }
   }
