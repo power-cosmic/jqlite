@@ -19,11 +19,19 @@ function $(selector) {
       this.element.onclick = fn;
       return this;
     }
+    JQLite.prototype.blur = function(fn) {
+      this.element.onblur = fn;
+      return this;
+    }
+    JQLite.prototype.focus = function(fn) {
+      this.element.onfocus = fn;
+      return this;
+    }
     JQLite.prototype.add = function(newElem) {
       if (typeof newElem == "string") {
         newElem = document.createElement(newElem);
       }
-      this.element.add(newElem);
+      this.element.appendChild(newElem);
       return new JQLite(newElem);
     }
     switch (selector.charAt(0)) {
