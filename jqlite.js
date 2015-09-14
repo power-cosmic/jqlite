@@ -44,6 +44,34 @@ function $(selector) {
         fn(this.element);
       }
     }
+    /*
+    addAttr
+    removeAttr
+    addClass
+    removeClass
+
+    toggleClass
+    */
+
+    /*
+    change
+    dlbclick
+    hover
+    submit
+    */
+
+    /*
+    first
+    last
+    children
+    parent
+
+    data
+    filter
+    not
+    wrap
+    hide
+    */
     switch (selector.charAt(0)) {
       case "#":
       return new JQLite(document.getElementById(selector.substring(1)));
