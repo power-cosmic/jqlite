@@ -1,0 +1,36 @@
+{
+  "name": "jqlite",
+  "version": "0.1.0",
+  "description": "jQuery for the faint of heart.",
+  "main": "./lib/jqlite.js",
+  "directories": {
+    "example": "./example",
+    "build": "./build",
+    "bin": "./bin",
+    "doc": "./doc",
+    "lib": "./lib",
+    "man": "./doc/man"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/power-cosmic/jqlite.git"
+  },
+  "keywords": [
+    "browser",
+    "jquery"
+  ],
+  "author": "Eddie Gurnee <eddie.gurnee@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/power-cosmic/jqlite/issues"
+  },
+  "homepage": "https://github.com/power-cosmic/jqlite#readme",
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "istanbul": "^0.3.20",
+    "mocha": "^2.3.3"
+  }
+}
