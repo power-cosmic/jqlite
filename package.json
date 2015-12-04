@@ -1,6 +1,6 @@
 {
   "name": "jqlite",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "jQuery for the faint of heart.",
   "main": "./lib/jqlite.js",
   "directories": {
