@@ -1,0 +1,23 @@
+{
+  "name": "jqlite",
+  "description": "jQuery for the faint of heart.",
+  "main": "./lib/jqlite.js",
+  "authors": [
+    "Eddie Gurnee <eddie.gurnee@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "browser",
+    "jquery"
+  ],
+  "homepage": "https://github.com/power-cosmic/jqlite",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
